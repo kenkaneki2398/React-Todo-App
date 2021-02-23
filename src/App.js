@@ -73,7 +73,7 @@ function App() {
     <section className="section-center">
       <form className="todo-form" onSubmit={handleSubmit}>
         {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
-        <h3>things todo</h3>
+        <h3>todo list</h3>
         <div className="form-control">
           <input type="text" className="todo" placeholder="e.g. check email" value={name} onChange={(e) => setName(e.target.value)} />
           <button type="submit" className="submit-btn">
