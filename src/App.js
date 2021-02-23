@@ -12,7 +12,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if(!name) {
-      // display alert
+      showAlert(true, 'danger', 'please enter a thing to do')
     }
     else if(name && isEditing) {
       // deal with edit
@@ -24,10 +24,15 @@ function App() {
       setName('')
     }
   }
+
+  const showAlert = (show = false, type = '', msg = '') => {
+    setAlert({ show, type, msg })
+  }
+
   return (
     <section className="section-center">
       <form className="todo-form" onSubmit={handleSubmit}>
-        {alert.show && <Alert />}
+        {alert.show && <Alert {...alert} removeAlert={showAlert} />}
         <h3>things todo</h3>
         <div className="form-control">
           <input type="text" className="todo" placeholder="e.g. check email" value={name} onChange={(e) => setName(e.target.value)} />
